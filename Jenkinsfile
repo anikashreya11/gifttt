@@ -2,7 +2,7 @@ pipeline {
     agent any
 
     tools {
-        hudson.plugins.sonar.SonarRunnerInstallation 'sonarqube'
+        sonarRunner 'sonarqube'
     }
 
     environment {
@@ -11,7 +11,6 @@ pipeline {
     }
 
     stages {
-
         stage('Checkout') {
             steps {
                 checkout scm
@@ -45,7 +44,11 @@ pipeline {
         stage('SonarQube Analysis') {
             steps {
                 withSonarQubeEnv('sonarqube') {
-                    sh 'sonar-scanner -Dsonar.projectKey=giftBloom -Dsonar.sources=.'
+                    sh '''
+                    sonar-scanner \
+                    -Dsonar.projectKey=giftBloom \
+                    -Dsonar.sources=.
+                    '''
                 }
             }
         }
