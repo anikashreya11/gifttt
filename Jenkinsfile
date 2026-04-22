@@ -1,10 +1,6 @@
 pipeline {
     agent any
 
-    tools {
-        sonarRunner 'sonarqube'
-    }
-
     environment {
         IMAGE_NAME = 'giftbloom-app'
         CONTAINER_NAME = 'giftbloom-container'
@@ -47,7 +43,9 @@ pipeline {
                     sh '''
                     sonar-scanner \
                     -Dsonar.projectKey=giftBloom \
-                    -Dsonar.sources=.
+                    -Dsonar.projectName=giftBloom \
+                    -Dsonar.sources=. \
+                    -Dsonar.exclusions=**/node_modules/**,frontend/build/**
                     '''
                 }
             }
@@ -66,6 +64,15 @@ pipeline {
                 docker run -d --name $CONTAINER_NAME -p 80:80 $IMAGE_NAME
                 '''
             }
+        }
+    }
+
+    post {
+        success {
+            echo 'Pipeline Success'
+        }
+        failure {
+            echo 'Pipeline Failed'
         }
     }
 }
