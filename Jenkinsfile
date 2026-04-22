@@ -2,7 +2,7 @@ pipeline {
     agent any
 
     tools {
-        sonarQubeScanner 'sonarqube'
+        hudson.plugins.sonar.SonarRunnerInstallation 'sonarqube'
     }
 
     environment {
@@ -45,13 +45,7 @@ pipeline {
         stage('SonarQube Analysis') {
             steps {
                 withSonarQubeEnv('sonarqube') {
-                    sh '''
-                    sonar-scanner \
-                    -Dsonar.projectKey=giftBloom \
-                    -Dsonar.projectName=giftBloom \
-                    -Dsonar.sources=. \
-                    -Dsonar.exclusions=node_modules/**,frontend/node_modules/**,backend/node_modules/**,frontend/build/**
-                    '''
+                    sh 'sonar-scanner -Dsonar.projectKey=giftBloom -Dsonar.sources=.'
                 }
             }
         }
@@ -62,22 +56,13 @@ pipeline {
             }
         }
 
-        stage('Deploy Container') {
+        stage('Deploy') {
             steps {
                 sh '''
                 docker rm -f $CONTAINER_NAME || true
                 docker run -d --name $CONTAINER_NAME -p 80:80 $IMAGE_NAME
                 '''
             }
-        }
-    }
-
-    post {
-        success {
-            echo 'Build + SonarQube + Deployment Successful!'
-        }
-        failure {
-            echo 'Pipeline Failed!'
         }
     }
 }
