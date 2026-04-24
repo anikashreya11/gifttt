@@ -16,7 +16,12 @@ pipeline {
         stage('Install Backend') {
             steps {
                 dir('backend') {
-                    sh 'npm install'
+                    sh '''
+                    export NVM_DIR="$HOME/.nvm"
+                    . "$NVM_DIR/nvm.sh"
+                    nvm use 20
+                    npm install
+                    '''
                 }
             }
         }
@@ -24,7 +29,12 @@ pipeline {
         stage('Install Frontend') {
             steps {
                 dir('frontend') {
-                    sh 'npm install'
+                    sh '''
+                    export NVM_DIR="$HOME/.nvm"
+                    . "$NVM_DIR/nvm.sh"
+                    nvm use 20
+                    npm install
+                    '''
                 }
             }
         }
