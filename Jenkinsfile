@@ -18,8 +18,10 @@ pipeline {
                 dir('backend') {
                     sh '''
                     export NVM_DIR="$HOME/.nvm"
-                    . "$NVM_DIR/nvm.sh"
+                    [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"
                     nvm use 20
+                    node -v
+                    npm -v
                     npm install
                     '''
                 }
@@ -31,8 +33,10 @@ pipeline {
                 dir('frontend') {
                     sh '''
                     export NVM_DIR="$HOME/.nvm"
-                    . "$NVM_DIR/nvm.sh"
+                    [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"
                     nvm use 20
+                    node -v
+                    npm -v
                     npm install
                     '''
                 }
