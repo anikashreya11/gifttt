@@ -1,0 +1,267 @@
+/* ===== DESIGN EDITOR ===== */
+.design-editor {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+/* ===== TOOLBAR ===== */
+.editor-toolbar {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 24px;
+  background-color: #fafafa;
+  border: 1px solid #f0f0f0;
+  border-radius: 4px;
+  padding: 24px;
+}
+
+.toolbar-section {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  min-width: 140px;
+}
+
+.toolbar-label {
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  color: #aaa;
+  font-family: 'Inter', sans-serif;
+}
+
+/* ===== TEXT INPUT ROW ===== */
+.text-input-row {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+}
+
+.editor-input {
+  border: 1px solid #e8e8e8;
+  border-radius: 2px;
+  padding: 8px 12px;
+  font-size: 13px;
+  font-family: 'Inter', sans-serif;
+  color: #1a1a1a;
+  outline: none;
+  width: 180px;
+  transition: border 0.3s;
+}
+
+.editor-input:focus {
+  border-color: #1a1a1a;
+}
+
+/* ===== TOOLBAR BUTTONS ===== */
+.toolbar-btn {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 8px 16px;
+  border-radius: 2px;
+  font-size: 12px;
+  font-weight: 500;
+  font-family: 'Inter', sans-serif;
+  cursor: pointer;
+  border: none;
+  transition: all 0.3s;
+  letter-spacing: 0.5px;
+  white-space: nowrap;
+}
+
+.toolbar-btn.primary {
+  background-color: #1a1a1a;
+  color: #fff;
+}
+
+.toolbar-btn.primary:hover {
+  background-color: #e8a0b4;
+  color: #1a1a1a;
+}
+
+.toolbar-btn.danger {
+  background-color: transparent;
+  color: #e24b4a;
+  border: 1px solid #e24b4a;
+}
+
+.toolbar-btn.danger:hover {
+  background-color: #e24b4a;
+  color: #fff;
+}
+
+/* ===== FONT CONTROLS ===== */
+.font-controls {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.editor-select {
+  border: 1px solid #e8e8e8;
+  border-radius: 2px;
+  padding: 7px 10px;
+  font-size: 13px;
+  font-family: 'Inter', sans-serif;
+  color: #1a1a1a;
+  outline: none;
+  background-color: #fff;
+  cursor: pointer;
+  transition: border 0.3s;
+}
+
+.editor-select:focus {
+  border-color: #1a1a1a;
+}
+
+.editor-select.small {
+  width: 68px;
+}
+
+.toolbar-icon-btn {
+  width: 34px;
+  height: 34px;
+  border: 1px solid #e8e8e8;
+  border-radius: 2px;
+  background-color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 15px;
+  color: #555;
+  cursor: pointer;
+  transition: all 0.3s;
+}
+
+.toolbar-icon-btn:hover {
+  border-color: #1a1a1a;
+  color: #1a1a1a;
+}
+
+.toolbar-icon-btn.active {
+  background-color: #1a1a1a;
+  border-color: #1a1a1a;
+  color: #fff;
+}
+
+/* ===== COLOR SWATCHES ===== */
+.color-swatches {
+  display: flex;
+  gap: 6px;
+  flex-wrap: wrap;
+}
+
+.color-swatch {
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  cursor: pointer;
+  transition: transform 0.2s;
+  position: relative;
+}
+
+.color-swatch:hover {
+  transform: scale(1.2);
+}
+
+.color-swatch.active::after {
+  content: '';
+  position: absolute;
+  inset: -3px;
+  border-radius: 50%;
+  border: 2px solid #1a1a1a;
+}
+
+/* ===== UPLOAD BG BUTTON ===== */
+.upload-bg-btn {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 12px;
+  color: #555;
+  cursor: pointer;
+  border: 1px dashed #e0e0e0;
+  border-radius: 2px;
+  padding: 6px 12px;
+  transition: all 0.3s;
+  font-family: 'Inter', sans-serif;
+  margin-top: 4px;
+  width: fit-content;
+}
+
+.upload-bg-btn:hover {
+  border-color: #1a1a1a;
+  color: #1a1a1a;
+}
+
+/* ===== CANVAS ===== */
+.editor-canvas {
+  width: 100%;
+  height: 460px;
+  border-radius: 4px;
+  border: 1.5px solid #f0f0f0;
+  position: relative;
+  overflow: hidden;
+  cursor: default;
+  transition: background-color 0.3s;
+}
+
+/* ===== CANVAS ELEMENTS ===== */
+.canvas-element {
+  position: absolute;
+  display: inline-block;
+  padding: 4px;
+}
+
+.canvas-element.selected {
+  outline: 1.5px dashed #e8a0b4;
+  outline-offset: 4px;
+  border-radius: 2px;
+}
+
+/* ===== DRAG HINT ===== */
+.drag-hint {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  font-size: 10px;
+  color: #e8a0b4;
+  margin-top: 4px;
+  font-family: 'Inter', sans-serif;
+  white-space: nowrap;
+}
+
+/* ===== CANVAS PLACEHOLDER ===== */
+.canvas-placeholder {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  pointer-events: none;
+}
+
+.canvas-placeholder p {
+  font-size: 18px;
+  font-family: 'Playfair Display', serif;
+  color: #ccc;
+  font-weight: 600;
+}
+
+.canvas-placeholder span {
+  font-size: 13px;
+  color: #ddd;
+  font-family: 'Inter', sans-serif;
+}
+
+/* ===== SAVE BUTTON ===== */
+.save-design-btn {
+  align-self: flex-end;
+  padding: 14px 40px;
+}

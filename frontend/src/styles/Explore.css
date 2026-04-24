@@ -1,0 +1,413 @@
+/* ===== EXPLORE HEADER ===== */
+.explore {
+  min-height: 100vh;
+  background-color: #fafafa;
+}
+
+.explore-header {
+  text-align: center;
+  padding: 80px 60px 40px;
+  background-color: #fff;
+  border-bottom: 1px solid #f0f0f0;
+}
+
+.explore-header h1 {
+  font-size: 48px;
+  font-weight: 700;
+  color: #1a1a1a;
+  margin-bottom: 12px;
+}
+
+.explore-sub {
+  font-size: 16px;
+  color: #888;
+  font-weight: 300;
+}
+
+/* ===== SEARCH BAR ===== */
+.search-bar-wrapper {
+  display: flex;
+  justify-content: center;
+  padding: 32px 60px 0;
+  background-color: #fff;
+}
+
+.search-bar {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  width: 100%;
+  max-width: 560px;
+  border: 1px solid #e8e8e8;
+  border-radius: 2px;
+  padding: 14px 20px;
+  background-color: #fafafa;
+  transition: border 0.3s;
+}
+
+.search-bar:focus-within {
+  border-color: #1a1a1a;
+}
+
+.search-icon {
+  font-size: 18px;
+  color: #aaa;
+}
+
+.search-bar input {
+  border: none;
+  background: transparent;
+  outline: none;
+  font-size: 14px;
+  color: #1a1a1a;
+  width: 100%;
+  font-family: 'Inter', sans-serif;
+}
+
+.search-bar input::placeholder {
+  color: #bbb;
+}
+
+/* ===== OCCASION PILLS ===== */
+.occasion-pills {
+  display: flex;
+  gap: 10px;
+  padding: 24px 60px 32px;
+  background-color: #fff;
+  border-bottom: 1px solid #f0f0f0;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.pill {
+  padding: 8px 20px;
+  border-radius: 2px;
+  border: 1px solid #e8e8e8;
+  background-color: #fff;
+  font-size: 13px;
+  font-weight: 500;
+  color: #555;
+  cursor: pointer;
+  transition: all 0.3s;
+  font-family: 'Inter', sans-serif;
+  letter-spacing: 0.3px;
+}
+
+.pill:hover {
+  border-color: #1a1a1a;
+  color: #1a1a1a;
+}
+
+.pill.active {
+  background-color: #1a1a1a;
+  color: #fff;
+  border-color: #1a1a1a;
+}
+
+/* ===== EXPLORE BODY ===== */
+.explore-body {
+  display: grid;
+  grid-template-columns: 260px 1fr;
+  gap: 40px;
+  padding: 40px 60px;
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+/* ===== SIDEBAR ===== */
+.sidebar {
+  background-color: #fff;
+  border: 1px solid #f0f0f0;
+  border-radius: 4px;
+  padding: 32px;
+  height: fit-content;
+  position: sticky;
+  top: 80px;
+}
+
+.sidebar-section {
+  margin-bottom: 32px;
+  padding-bottom: 32px;
+  border-bottom: 1px solid #f0f0f0;
+}
+
+.sidebar-section:last-child {
+  margin-bottom: 0;
+  padding-bottom: 0;
+  border-bottom: none;
+}
+
+.sidebar-section h4 {
+  font-size: 14px;
+  font-weight: 600;
+  color: #1a1a1a;
+  display: flex;
+  align-items: center;
+  font-family: 'Inter', sans-serif;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+}
+
+.filter-label {
+  font-size: 12px;
+  font-weight: 600;
+  color: #888;
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  margin-bottom: 16px;
+}
+
+.filter-option {
+  font-size: 14px;
+  color: #555;
+  padding: 8px 0;
+  cursor: pointer;
+  transition: color 0.3s;
+  border-bottom: 1px solid #f8f8f8;
+  font-weight: 400;
+}
+
+.filter-option:hover {
+  color: #1a1a1a;
+}
+
+.filter-option.active {
+  color: #1a1a1a;
+  font-weight: 600;
+}
+
+/* ===== PRICE RANGE ===== */
+.price-range {
+  width: 100%;
+  margin: 8px 0;
+  accent-color: #1a1a1a;
+  cursor: pointer;
+}
+
+.price-labels {
+  display: flex;
+  justify-content: space-between;
+  font-size: 12px;
+  color: #aaa;
+  margin-top: 4px;
+}
+
+/* ===== PRODUCTS SECTION ===== */
+.products-section {
+  flex: 1;
+}
+
+.results-count {
+  font-size: 13px;
+  color: #aaa;
+  margin-bottom: 24px;
+  font-weight: 400;
+  letter-spacing: 0.5px;
+}
+
+.products-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+}
+
+/* ===== PRODUCT CARD ===== */
+.product-card {
+  background-color: #fff;
+  border: 1px solid #f0f0f0;
+  border-radius: 4px;
+  overflow: hidden;
+  transition: all 0.3s;
+}
+
+.product-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.07);
+}
+
+.product-img {
+  position: relative;
+  height: 240px;
+  overflow: hidden;
+}
+
+.product-img img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.5s ease;
+}
+
+.product-card:hover .product-img img {
+  transform: scale(1.05);
+}
+
+.wishlist-btn {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  border: none;
+  background-color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  font-size: 16px;
+  color: #aaa;
+  transition: all 0.3s;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+}
+
+.wishlist-btn:hover {
+  color: #e8a0b4;
+}
+
+.wishlist-btn.active {
+  color: #e8709a;
+  background-color: #fff0f5;
+}
+
+.product-tag {
+  position: absolute;
+  top: 12px;
+  left: 12px;
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  background-color: #1a1a1a;
+  color: #fff;
+  padding: 4px 10px;
+  border-radius: 2px;
+}
+
+.product-info {
+  padding: 20px;
+}
+
+.product-category {
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: #e8a0b4;
+  margin-bottom: 6px;
+}
+
+.product-info h3 {
+  font-size: 15px;
+  font-weight: 600;
+  color: #1a1a1a;
+  margin-bottom: 8px;
+  font-family: 'Inter', sans-serif;
+  line-height: 1.4;
+}
+
+.product-price {
+  font-size: 18px;
+  font-weight: 600;
+  color: #1a1a1a;
+  margin-bottom: 16px;
+}
+
+/* ===== NO RESULTS ===== */
+.no-results {
+  text-align: center;
+  padding: 80px 40px;
+  color: #aaa;
+  font-size: 15px;
+}
+
+/* ===== RESPONSIVE ===== */
+@media (max-width: 1024px) {
+  .products-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .explore-body {
+    grid-template-columns: 220px 1fr;
+    gap: 24px;
+    padding: 40px 24px;
+  }
+}
+
+@media (max-width: 768px) {
+  .explore-header {
+    padding: 60px 24px 32px;
+  }
+
+  .explore-header h1 {
+    font-size: 36px;
+  }
+
+  .search-bar-wrapper {
+    padding: 24px 24px 0;
+  }
+
+  .occasion-pills {
+    padding: 20px 24px 24px;
+  }
+
+  .explore-body {
+    grid-template-columns: 1fr;
+  }
+
+  .sidebar {
+    position: static;
+  }
+
+  .products-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 480px) {
+  .products-grid {
+    grid-template-columns: 1fr;
+  }
+}
+/* ===== CATEGORY TABS ===== */
+.category-tabs {
+  display: flex;
+  gap: 8px;
+  padding: 20px 60px;
+  background-color: #fff;
+  border-bottom: 1px solid #f0f0f0;
+  overflow-x: auto;
+  scrollbar-width: none;
+}
+
+.category-tabs::-webkit-scrollbar { display: none; }
+
+.category-tab {
+  padding: 9px 18px;
+  border: 1.5px solid #e8e8e8;
+  border-radius: 20px;
+  background-color: #fff;
+  font-size: 13px;
+  font-weight: 500;
+  color: #555;
+  cursor: pointer;
+  transition: all 0.3s;
+  font-family: 'Inter', sans-serif;
+  white-space: nowrap;
+}
+
+.category-tab:hover { border-color: #1a1a1a; color: #1a1a1a; }
+.category-tab.active { background-color: #1a1a1a; color: #fff; border-color: #1a1a1a; }
+
+.search-clear-btn {
+  font-size: 16px;
+  color: #aaa;
+  cursor: pointer;
+  flex-shrink: 0;
+}
+
+.search-clear-btn:hover { color: #1a1a1a; }
+
+@media (max-width: 768px) {
+  .category-tabs { padding: 16px 24px; }
+}
