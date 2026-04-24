@@ -3,24 +3,16 @@ pipeline {
 
     environment {
         NVM_DIR = "/home/rastrith156/.nvm"
-        NODE_VERSION = "20"
     }
 
     stages {
-
-        stage('Checkout') {
-            steps {
-                git 'https://github.com/anikashreya11/gifttt.git'
-            }
-        }
 
         stage('Setup Node') {
             steps {
                 sh '''
                 export NVM_DIR="$NVM_DIR"
                 [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"
-                nvm install $NODE_VERSION
-                nvm use $NODE_VERSION
+                nvm use 20
 
                 node -v
                 npm -v
@@ -34,7 +26,7 @@ pipeline {
                     sh '''
                     export NVM_DIR="$NVM_DIR"
                     [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"
-                    nvm use $NODE_VERSION
+                    nvm use 20
 
                     npm install
                     '''
@@ -48,7 +40,7 @@ pipeline {
                     sh '''
                     export NVM_DIR="$NVM_DIR"
                     [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"
-                    nvm use $NODE_VERSION
+                    nvm use 20
 
                     npm run build
                     '''
@@ -56,11 +48,12 @@ pipeline {
             }
         }
 
-        stage('Deploy to Nginx') {
+        stage('Deploy') {
             steps {
                 sh '''
                 sudo rm -rf /var/www/html/*
                 sudo cp -r frontend/build/* /var/www/html/
+                sudo systemctl restart nginx
                 '''
             }
         }
@@ -68,7 +61,7 @@ pipeline {
 
     post {
         success {
-            echo "🚀 Deployment Successful"
+            echo "✅ Deployment Successful"
         }
         failure {
             echo "❌ Pipeline Failed"
