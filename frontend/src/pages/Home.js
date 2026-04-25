@@ -42,7 +42,7 @@ function Home() {
       <section className="hero">
         <div className="hero-text">
           <p className="hero-tagline">Thoughtfully Curated Gifts</p>
-          <h1>Give the gift of <span>a memory</span></h1>
+          <h1>Give the best of the best gift of <span>a memory</span></h1>
           <p className="hero-sub">Personalized hampers, custom cards, fresh flowers and meaningful gifts — delivered to your loved ones with care.</p>
           <div className="hero-buttons">
             <button className="btn-primary" onClick={() => navigate('/explore')}>
